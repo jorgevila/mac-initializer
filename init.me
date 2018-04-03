@@ -22,7 +22,7 @@ funUntapTap() {
     echo -e "*** Untap and tap brew repos ***"
     sleep 1
     brew untap phinze/cask && brew tap phinze/cask
-    brew untap caskroom/versions && brew tap caskroom/versions
+    brew untap caskroom/cask && brew tap caskroom/cask
     brew untap casidiablo/custom && brew tap casidiablo/custom
     sleep 2
 }
@@ -31,7 +31,10 @@ funBrewPackages() {
     echo -e "*** Installing Brew Packages ***"
     sleep 1
     funUntapTap
-    brew install android-platform-tools
+    brew cask install android-platform-tools
+    brew cask install apktool
+    brew cask install android-sdk
+    brew cask install android-ndk
     brew install ant
     brew install autoconf
     brew install automake
@@ -58,7 +61,7 @@ funBrewPackages() {
     brew install libgcrypt
     brew install libffi
     brew install libtasn1
-    #brew install mongo
+    brew install mongo
     brew install nettle
     brew install nmap
     brew install openssl
@@ -73,6 +76,8 @@ funBrewPackages() {
     brew install wget
     brew install xz
     brew install yarn
+    brew install kotlin
+    brew install firebase-cli
     brew cleanup # clean cache
     echo -e "*** Installed Brew Packages! ***"
     sleep 2
@@ -93,7 +98,7 @@ funCaskPackages() {
     brew cask install firefox
     brew cask install flash
     brew cask install google-chrome
-    brew cask install google-earth
+    brew cask install google-earth-pro
     brew cask install gpgtools
     brew cask install iterm2
     brew cask install inkscape
@@ -130,6 +135,7 @@ funCaskPackages() {
     brew cask install yubikey-personalization-gui
     brew cask install zeplin
     brew cask cleanup # clean cache
+    brew cask install slack
     echo -e "*** Installed Cask Packages! ***"
     sleep 2
 }
